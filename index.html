@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Tic Tac Toe JS</title>
+        <link rel='stylesheet' href='styles.css'>
+    </head>
+    <body>
+        <h1>Tic Tac Toe JS</h1>
+        <p>This is Tic Tac Toe (or Noughts and Crosses, depending on where you're from) 
+            written in ES5, with a MiniMax AI.  MiniMax will always select the best move 
+            possible, meaning the best you could hope for is a tie.</p>
+        <p>To make the game fun, I've added an element of randomness such that 1/5 times, 
+            the AI chooses a random square instead of what MiniMax suggests. This is often
+            a bad move, and so is your opening to take the win.  Miss it, and you're likely
+            to tie or lose.</p>
+        <ul>
+            <li>You're X's, X's go first, and 3 across in any direction wins.</li>
+            <li>AI is based on MiniMax.</li>
+            <li>1/5 chance the AI will choose a random square instead of MiniMax.</li>
+        </ul>
+        <div id="game-container"></div>
+        <script src='tictactoe.js'></script>
+    </body>
+</html>

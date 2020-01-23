@@ -1,0 +1,41 @@
+body {
+    background-color: #121212;
+    color: #ccc;
+    font: 14px sans-serif;
+    line-height: 21px;
+    text-align: center;
+}
+ul, p {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+ul {
+    margin: 15px auto 15px auto;
+}
+ul li {
+    text-align: left;
+}
+
+
+#game-container {
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+    background-color: #333;
+}
+.cell {
+    float: left;
+    width: 196px;
+    height: 196px;
+    background-color: #555;
+    margin: 2px;
+    font-size: 65px;
+    font-weight: bold;
+    line-height: 196px;
+    cursor: pointer;
+}
+.cell.occupied {
+    cursor: default;
+}
