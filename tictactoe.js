@@ -95,7 +95,9 @@ function click(event) {
             draw();
             victory = checkVictory(aiTeam);
             if(victory) {
-                setTimeout(function(){ alert('Hooray! ' + aiTeam + ' won!'); }, 250);
+                setTimeout(function(){ 
+                    alert('Hooray! ' + aiTeam + ' won!'); 
+                }, 250);
                 return;
             }
         }
@@ -144,37 +146,39 @@ function minimax(depth, alpha, beta, isMax) {
 
     // maximizing
     if(isMax) {
-        let bestScore = -Infinity;
+        // let bestScore = -Infinity;
         for(let i = 0; i < board.length; i++) {
             if(board[i] == '') {
                 occupyCell(i, aiTeam);
                 let score = minimax(depth++, alpha, beta, false);
                 unoccupyCell(i);
-                bestScore = Math.max(score, bestScore);
+                // bestScore = Math.max(score, bestScore);
                 alpha = Math.max(score, alpha);
                 if(beta <= alpha)
                     break;
             }
         }
 
-        return bestScore;
+        // return bestScore;
+        return alpha;
     }
     // minimizing
     else {
-        let bestScore = Infinity;
+        // let bestScore = Infinity;
         for(let i = 0; i < board.length; i++) {
             if(board[i] == '') {
                 occupyCell(i, playerTeam);
                 let score = minimax(depth++, alpha, beta, true);
                 unoccupyCell(i);
-                bestScore = Math.min(score, bestScore);
+                // bestScore = Math.min(score, bestScore);
                 beta = Math.min(score, beta);
                 if(beta <= alpha)
                     break;
             }
         }
         
-        return bestScore;
+        // return bestScore;
+        return beta;
     }
 }
 
@@ -197,6 +201,19 @@ function playerTurn(cell) {
     return false;
 }
 
+function resetBoard() {
+    board = ['', '', '', '', '', '', '', '', ''];
+    turns = 0;
+    victory = false;
+
+    for(var i = 0; i < board.length; i++) {
+        var elm = cells[i];
+        elm.classList.remove('occupied');
+    }
+
+    draw();
+}
+
 function whosTurn() {
     return turns % 2 == 0 ? playerTeam : aiTeam;
 }
@@ -208,8 +225,14 @@ window.addEventListener('load', function(e){
     draw();
     for(var i = 0; i < cells.length; i++) {
         var cell = cells[i];
+        var resetBtn = document.getElementById("btn_reset");
+        
         cell.addEventListener('click', function(event){
             click(event);
+        });
+
+        resetBtn.addEventListener('click', function(e){
+            resetBoard();
         });
     }
 });

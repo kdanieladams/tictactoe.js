@@ -1,11 +1,21 @@
 body {
     background-color: #121212;
     color: #ccc;
-    font: 14px sans-serif;
-    line-height: 21px;
+    font: 16px sans-serif;
+    line-height: 1.5em;
     text-align: center;
 }
-ul, p {
+button {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 4px;
+    border: solid 1px #777;
+}
+button.danger {
+    background-color: #c00;
+    color: #cecece;
+}
+p, ul {
     display: block;
     max-width: 600px;
     margin: 0 auto;
